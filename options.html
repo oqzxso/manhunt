@@ -2,37 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Options - Dark Reality</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Menu - Dark Reality</title>
     <style>
-        /* Reusing core styles */
-        body { margin: 0; background: #050505; color: white; font-family: sans-serif; display: flex; align-items: center; height: 100vh; }
-        .menu-container { padding-left: 10%; display: flex; flex-direction: column; gap: 20px; width: 400px; }
-        h1 { border-left: 4px solid #ff0000; padding-left: 15px; text-transform: uppercase; letter-spacing: 4px; }
-        
-        .setting-group { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px 20px; border: 1px solid #333; }
-        
-        input[type=range] { accent-color: #ff0000; cursor: pointer; }
-        
-        .back-btn { margin-top: 20px; background: #222; color: #999; border: 1px solid #444; padding: 10px; cursor: pointer; text-decoration: none; text-align: center; transition: 0.3s; }
-        .back-btn:hover { color: white; border-color: #ff0000; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+        :root {
+            --glow-color: rgba(255, 0, 0, 0.6);
+            --button-bg: #222;
+            --text-color: #e0e0e0;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #050505;
+            background-image: url('manhunt.jpeg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Dark cinematic overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,0.85) 0%,
+                rgba(0,0,0,0.4) 40%,
+                rgba(0,0,0,0) 70%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .menu-container {
+            padding-left: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        .menu-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            text-shadow:
+                0 0 10px rgba(255, 0, 0, 0.4),
+                0 0 25px rgba(255, 0, 0, 0.2);
+        }
+
+        .menu-button {
+            width: 220px;
+            padding: 15px 25px;
+            background: linear-gradient(180deg, #333 0%, #111 100%);
+            border: 1px solid #444;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .menu-button:hover {
+            border-color: #ff0000;
+            box-shadow: 0 0 15px var(--glow-color);
+            transform: translateX(10px);
+            color: #fff;
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        .menu-button:active {
+            transform: translateX(5px) scale(0.98);
+        }
+
+        /* Decorative red line on the left of buttons */
+        .menu-button::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: transparent;
+            transition: background 0.3s;
+        }
+
+        .menu-button:hover::before {
+            background: #ff0000;
+        }
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <h1>Options</h1>
-        <div class="setting-group">
-            <span>Master Volume</span>
-            <input type="range" min="0" max="100" value="80">
-        </div>
-        <div class="setting-group">
-            <span>Brightness</span>
-            <input type="range" min="0" max="100" value="50">
-        </div>
-        <div class="setting-group">
-            <span>Subtitles</span>
-            <input type="checkbox" checked>
-        </div>
-        <a href="index.html" class="back-btn">RETURN TO MAIN MENU</a>
-    </div>
+
+    <div class="overlay"></div>
+
+    <nav class="menu-container">
+        <div class="menu-title">MANHUNT</div>
+
+        <button class="menu-button" onclick="window.location.href='#'">Start Game</button>
+        <button class="menu-button" onclick="window.location.href='#'">Options</button>
+        <button class="menu-button" onclick="window.location.href='#'">Load Game</button>
+        <button class="menu-button" onclick="window.location.href='#'">Highscores</button>
+        <button class="menu-button" onclick="window.location.href='#'">Quit</button>
+    </nav>
+
 </body>
 </html>
