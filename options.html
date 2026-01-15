@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Options - Dark Reality</title>
+    <style>
+        /* Reusing core styles */
+        body { margin: 0; background: #050505; color: white; font-family: sans-serif; display: flex; align-items: center; height: 100vh; }
+        .menu-container { padding-left: 10%; display: flex; flex-direction: column; gap: 20px; width: 400px; }
+        h1 { border-left: 4px solid #ff0000; padding-left: 15px; text-transform: uppercase; letter-spacing: 4px; }
+        
+        .setting-group { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px 20px; border: 1px solid #333; }
+        
+        input[type=range] { accent-color: #ff0000; cursor: pointer; }
+        
+        .back-btn { margin-top: 20px; background: #222; color: #999; border: 1px solid #444; padding: 10px; cursor: pointer; text-decoration: none; text-align: center; transition: 0.3s; }
+        .back-btn:hover { color: white; border-color: #ff0000; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Options</h1>
+        <div class="setting-group">
+            <span>Master Volume</span>
+            <input type="range" min="0" max="100" value="80">
+        </div>
+        <div class="setting-group">
+            <span>Brightness</span>
+            <input type="range" min="0" max="100" value="50">
+        </div>
+        <div class="setting-group">
+            <span>Subtitles</span>
+            <input type="checkbox" checked>
+        </div>
+        <a href="index.html" class="back-btn">RETURN TO MAIN MENU</a>
+    </div>
+</body>
+</html>
