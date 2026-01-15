@@ -17,12 +17,27 @@
             height: 100%;
             width: 100%;
             background-color: #050505;
-            /* Placeholder for your background image */
-            background-image: url('manhunt.jpeg'); background-size: cover;
+            background-image: url('manhunt.jpeg');
+            background-size: cover;
+            background-position: center;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             overflow: hidden;
             display: flex;
             align-items: center;
+        }
+
+        /* Dark cinematic overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,0.85) 0%,
+                rgba(0,0,0,0.4) 40%,
+                rgba(0,0,0,0) 70%
+            );
+            pointer-events: none;
+            z-index: 1;
         }
 
         .menu-container {
@@ -31,6 +46,18 @@
             flex-direction: column;
             gap: 15px;
             z-index: 2;
+        }
+
+        .menu-title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            text-shadow:
+                0 0 10px rgba(255, 0, 0, 0.4),
+                0 0 25px rgba(255, 0, 0, 0.2);
         }
 
         .menu-button {
@@ -77,14 +104,6 @@
         .menu-button:hover::before {
             background: #ff0000;
         }
-
-        /* Ambient background detail (optional) */
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
@@ -92,12 +111,14 @@
     <div class="overlay"></div>
 
     <nav class="menu-container">
-    <button class="menu-button" onclick="window.location.href='#'">Start Game</button>
-    <button class="menu-button" onclick="window.location.href='#'">Options</button>
-    <button class="menu-button" onclick="window.location.href='#'">Load Game</button>
-    <button class="menu-button" onclick="window.location.href='#'">Highscores</button>
-    <button class="menu-button" onclick="window.location.href='#'">Quit</button>
-</nav>
+        <div class="menu-title">MANHUNT</div>
+
+        <button class="menu-button" onclick="window.location.href='#'">Start Game</button>
+        <button class="menu-button" onclick="window.location.href='#'">Options</button>
+        <button class="menu-button" onclick="window.location.href='#'">Load Game</button>
+        <button class="menu-button" onclick="window.location.href='#'">Highscores</button>
+        <button class="menu-button" onclick="window.location.href='#'">Quit</button>
+    </nav>
 
 </body>
 </html>
